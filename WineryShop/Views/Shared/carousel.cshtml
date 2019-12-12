@@ -1,0 +1,55 @@
+﻿
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="carousel-item-img">
+                <img class="d-block" src="~/wwwroot/img/best_in_world.jpg" alt="First slide" height="600" width="700">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Evergreen Wine</h5>
+                <p>Try out our best Wine till Date</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-item-img">
+                <img class="d-block" src="~/wwwroot/img/special_wines.jpg" alt="Second slide" height="600" width="700">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Spacial Wine</h5>
+                <p>Try out our special weekly Wine</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-item-img">
+                <img class="d-block" src="~/wwwroot/img/largest_collection.jpg" alt="Third slide" height="600" width="700">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Wine Collection</h5>
+                <p>Try out our largest Wine Collection</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+@section scripts {
+    <script>
+
+
+        $('.carousel').carousel({})
+
+
+    </script>
+}

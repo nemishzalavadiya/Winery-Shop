@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WineryShop.Core.Models.ShoppingCartItem>
+@{
+    ViewData["Title"] = "Cart";
+}
+<h2>Cart <i class="fa fa-shopping-cart" aria-hidden="true" style="color:blue"></i> </h2>
+
+
+@if (Model.Count() <= 0)
+{
+    <br />
+    <h6>Opps! Your Cart is empty!</h6>
+    @Html.ActionLink("Back Shopping", "Index", "Home", null, null);
+    return;
+}
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>WineId</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var total = 0;}
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.WineName</td>
+                <td>
+                    <form class="d-inline align-middle" action="/ShoppingCart/RemoveFromShoppingCart/@item.Id">
+
+                        <button class="btn fa fa-minus fa-small" aria-hidden="true"></button>
+                    </form>
+                    <span style="padding:1px 10px">@item.Qty</span>
+                    <form class="d-inline align-middle" action="/ShoppingCart/AddToAgainShoppingCart/@item.Id"
+                          method="post">
+                        <button class="btn fa fa-plus fa-small" aria-hidden="true"></button>
+                    </form>
+
+                </td>
+                <td>@item.price</td>
+                <td>
+                    @{
+                        var data = (@item.price) * (@item.Qty);
+                        total += data;
+                }
+                @data
+            </td>
+        </tr>
+    }
+        <tr>
+            <td colspan="4" style="text-align:center"><span class="badge-danger">Total Price</span> : @total</td>
+            </tr>
+    </tbody>
+    <tfoot>
+        <tr style="border:0">
+            <td>
+                <form action="/ShoppingCart/RemoveAllCart">
+                    <button class="btn buy-now-btn text-dark" type="submit">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                        Clear Cart
+                    </button>
+                </form>
+
+            </td>
+            <td colspan="2"></td>
+            <td class="text-center">
+                <a class="btn buy-now-btn float-right" href="/Order/Checkout">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    Checkout
+                </a>
+            </td>
+        </tr>
+    </tfoot>
+</table>

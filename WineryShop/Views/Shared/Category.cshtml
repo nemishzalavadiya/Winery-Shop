@@ -1,0 +1,16 @@
+﻿
+
+<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Catagory
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    @{
+        var model = Session["Categories"] as IEnumerable<WineryShop.Core.Models.Category>;
+    }
+    @foreach (WineryShop.Core.Models.Category ca in model)
+    {
+        <a class="dropdown-item" href="/Home/wines/@ca.Id">@ca.Name</a>
+    }
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="/Home/wines/-1">All Wines</a>
+</div>

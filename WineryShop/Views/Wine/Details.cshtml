@@ -1,0 +1,31 @@
+﻿@model WineryShop.Core.Models.Wine
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<br />
+<div class="row">
+    <div class="col-md-6">
+       @* <img class="img-thumbnail" src="@Model.ImageUrl" alt="@Model.Name" />*@
+        <img class="img-thumbnail" src="@Url.Content(Model.ImageUrl)" alt="@Model.Name" />
+        <p></p>
+    </div>
+    <div class="col-md-6">
+        <p><i>@Model.Price.ToString("c")</i></p>
+        <p>@Model.ShortDescription</p>
+        <p>@Model.LongDescription</p>
+        <form action="/ShoppingCart/AddToShoppingCart/@Model.Id" 
+              @*asp-action="AddToShoppingCart"
+              asp-controller="ShoppingCart"
+              asp-route-cakeId="@Model.Id"
+              *@
+                  >
+
+            <button type="submit" class="btn btn-primary buy-now-btn">Add to Cart</button>
+        </form>
+
+    </div>
+</div>
+

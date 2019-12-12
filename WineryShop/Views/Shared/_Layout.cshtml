@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Winery Shop</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <environment names="Development">
+        <script src="~/wwwroot/dist/main.js"></script>
+    </environment>
+    <environment names="Production">
+        <script src="~/wwwroot/dist/main.js" asp-append-version="true"></script>
+    </environment>
+
+   @* <style>
+
+        body {
+            background-image: url("~/wwwroot/back.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>*@
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                Winery Shop
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        @Html.Partial("Category")
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Contact" asp-action="">Contact Us</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li>
+                        <a class="nav-link" href="/ShoppingCart/show">
+                            Cart
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                          
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        @Html.Partial("AccountDropDown")
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="d-inline float-left">Copyright (c) 2018-@(DateTime.Now.Year + 1)</p>
+          
+        </div>
+        @*<email address="example@example.com" content="Contact Us"></email>*@
+    </footer>
+
+    @RenderSection("scripts", false)
+
+</body>
+
+</html>

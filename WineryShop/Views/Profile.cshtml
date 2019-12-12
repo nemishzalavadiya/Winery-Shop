@@ -1,0 +1,117 @@
+﻿@model IEnumerable<WineryShop.Core.Models.Login>
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+@{
+    foreach (var i in (List<WineryShop.Core.Models.Login>)ViewBag.profileData)
+    {
+
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4">Profile</h1>
+                <p class="lead">Welcome User, @Html.DisplayFor(x=> i.Username)</p>
+            </div>
+        </div>
+
+        
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                       
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                <div class="row">
+                                    <div class="col-md-6" style="background-color: #e7e7e7;">
+                                        <label>Designation</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>@Html.DisplayFor(x => i.Designation)</p>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:4px">
+                                    <div class="col-md-6" style="background-color: #e7e7e7;">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        @if (i.Email == null)
+                                        {
+                                            <a href="/Validate/Email">Edit</a>
+
+                                        }
+                                        <p>@Html.DisplayFor(x => i.Email)</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Experience</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hourly Rate</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>10$/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total Projects</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>230</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>English Level</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Availability</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>6 months</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Your Bio</label><br />
+                                        <p>Your detail description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+    }
+}

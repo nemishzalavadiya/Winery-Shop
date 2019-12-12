@@ -1,0 +1,30 @@
+﻿<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Hi, @(Session["Username"] ?? "User")!
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    @if (Session["Username"] == null)
+    {
+        <a href="/Validate/Login" class="dropdown-item">Login</a>
+        <a href="/Validate/Register" class="dropdown-item">Register</a>
+    }
+    else
+    {
+       
+        
+        <a href="/Order/ShowMyOrder" class="dropdown-item">My Order</a>
+        <a href="/Profile/Index" class="dropdown-item">Profile</a>
+        <form action="/Validate/Logout" class="no-padding-margin dropdown-item">
+            <button class="btn dropdown-item btn-no-effect">logout</button>
+        </form>
+
+        if (Session["Admin"]!=null)
+        {
+
+            <div class="dropdown-divider"></div>
+            <a href="/Wines/Index" class="dropdown-item">Wines</a>
+            <a href="/Categories/Index" class="dropdown-item">Category</a>
+            <a href="/Logins/Index" class="dropdown-item">Users</a>
+            
+        }
+    }
+</div>

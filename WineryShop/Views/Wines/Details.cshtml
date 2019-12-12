@@ -1,0 +1,61 @@
+﻿@model WineryShop.Core.Models.Wine
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="row">
+    <hr />
+    <div class="col-md-6">
+        @* <img class="img-thumbnail" src="@Model.ImageUrl" alt="@Model.Name" />*@
+        <img class="img-thumbnail" src="@Url.Content(Model.ImageUrl)" alt="@Model.Name" />
+        <p></p>
+    </div>
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+           
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ShortDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LongDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LongDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, htmlAttributes: new {@class = "btn btn-primary" }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

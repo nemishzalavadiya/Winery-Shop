@@ -1,0 +1,24 @@
+﻿@model WineryShop.Core.Models.ViewModel
+@{
+    ViewBag.Title = "Fotget";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Forgot", "Validate", FormMethod.Post))
+{
+   
+    <div class="form-group">
+        @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 ">
+            <input type="text" name="reportName" />
+           
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Send Mail" class="btn btn-default btn-primary" />
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("EmailSet", "Validate", FormMethod.Get))
+{
+
+<div class="form-group">
+    Email :
+    <div class="col-md-10 ">
+        <input type="email" name="Email" />
+
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Add Mail" class="btn btn-primary" />
+    </div>
+</div>
+                                            }

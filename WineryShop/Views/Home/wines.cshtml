@@ -1,0 +1,24 @@
+﻿
+@model IEnumerable<WineryShop.Core.Models.Wine>
+@{
+    ViewData["Title"] = "Wine";
+}
+@if (Model.Count() <= 0)
+{
+    <br />
+    <h6>Opps! Currently Not Available!</h6>
+    @Html.ActionLink("Back To Home", "Index", "Home", null, null);
+    return;
+}
+<br />
+<br />
+<div class="weekly-getting">
+    <h4>Wines of the Week</h4>
+    <p>Just for you!</p>
+</div>
+<div class="row">
+    @foreach (var wine in Model)
+    {
+        @Html.Partial("wine", wine);
+    }
+</div>

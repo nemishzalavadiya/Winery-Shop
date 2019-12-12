@@ -1,0 +1,22 @@
+﻿@model WineryShop.Core.Models.Wine
+
+<div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card" style="" onclick="javascript:window.location.href='/Wine/Details/@Model.Id'">
+        
+        <img class="card-img-top" src="@Url.Content(Model.ImageUrl)" alt="@Model.Name">
+        <div class="card-body">
+            <h5 class="card-title d-inline float-left">
+                @Model.Name
+            </h5>
+            <p class="card-text d-inline float-right">@Model.Price.ToString("c")</p>
+            <p class="card-text card-short-description"><i>@Model.ShortDescription</i></p>
+            <form action="/ShoppingCart/AddToShoppingCart/@Model.Id"
+                >
+
+                <button class="btn btn-primary buy-now-btn float-right">Buy Now</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
